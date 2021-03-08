@@ -1,0 +1,13 @@
+{% extends "post/navbar.html" %}
+{% block title %}{% endblock %}
+
+{% block content %}
+<h1>Редактировать пост</h1>
+<div class="col-sm-4">
+<form method="post" >
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Редактировать" class="btn btn-primary btn-block">
+</form>
+</div>
+{% endblock %}

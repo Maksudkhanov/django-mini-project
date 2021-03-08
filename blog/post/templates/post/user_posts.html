@@ -1,0 +1,17 @@
+{% extends "post/navbar.html" %}
+{% block title %}{% endblock %}
+
+{% block content %}
+<h1>Мои посты</h1>
+{% for post in posts %}
+        <div>
+             <h3>Автор:{{ post.author }}</h3>
+            <h2>Название: {{ post.title }}</h2>
+            <p>Описание: {{ post.content }}</p>
+            <p>Создано: {{ post.created}} | Редактировано: {{ post.updated }}</p>
+             <p><a href="{% url 'post_update' post.pk%}" class="btn btn-primary">Изменить</a></p>
+        </div>
+        <hr>
+    <hr>
+{% endfor %}
+{% endblock %}

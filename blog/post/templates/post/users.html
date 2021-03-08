@@ -1,0 +1,15 @@
+{% extends "post/navbar.html" %}
+{% block title %}{% endblock %}
+
+
+
+{% block content %}
+<h1>Список пользователей:</h1>
+{% for users in users_list %}
+<ul>
+    <li><h4><a href="{% url 'by_user' users.id %}">{{ users }}</a></h4></li>
+</ul>
+
+{% endfor %}
+
+{% endblock content %}

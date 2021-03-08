@@ -1,0 +1,16 @@
+{% extends "post/navbar.html" %}
+{% block title %}{% endblock %}
+
+{% block content %}
+    <h1>Авторизация</h1>
+
+
+<div class="col-sm-4">
+    <form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+
+    <button type="submit" class="btn btn-primary btn-block">Login</button>
+</form>
+</div>
+{% endblock %}

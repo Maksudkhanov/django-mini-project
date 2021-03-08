@@ -1,0 +1,19 @@
+{% extends "post/navbar.html" %}
+{% block title %}{% endblock %}
+
+{% block content %}
+<br>
+<p> <a href="{% url 'home' %}" class="btn btn-secondary">Назад</a>
+        <div>
+             <h3>Автор:{{ post.author }}</h3>
+            <h2>Название: {{ post.title }}</h2>
+            <p>Описание: {{ post.content }}</p>
+            <p>Создано: {{ post.created}} | Редактировано: {{ post.updated }}</p>
+            {% if request.user.is_authenticated and post.author.id == user.id  %}
+            <p><a href="{% url 'post_update' post.pk%}" class="btn btn-primary">Изменить</a></p>
+            {% endif %}
+        </div>
+        <hr>
+    <hr>
+
+{% endblock %}

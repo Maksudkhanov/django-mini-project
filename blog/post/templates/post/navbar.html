@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+ <nav class="navbar navbar-dark bg-dark" >
+     <a aria-disabled="true" class="nav-link disabled, text-white" href="{% url 'home' %}" tabindex="-1">Blog</a>
+     <a href="{% url 'users'  %}" class="text-white">Пользователи</a>
+     {% if request.user.is_authenticated %}
+            <span class="text-white">
+                <a class="text-white" href="{% url 'user_posts' %}">My posts</a> |
+                <a class="text-white" href="{% url 'add_posts' %}">Add a post</a>
+            </span>
+
+            <span class="text-white">
+                Добро пожаловать, {{user.username}} |
+                <a class="text-white" href="{% url 'logout' %}">Logout</a>
+            </span>
+            {% else %}
+            <span class="navbar-text">
+                <a class="text-white" href="{% url 'register' %}">Register</a> |
+                <a class="text-white" href="{% url 'login' %}">Login</a>
+            </span>
+     {% endif %}
+        </nav>
+{% block content %}
+
+{% endblock%}
+</body>
+</html>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
